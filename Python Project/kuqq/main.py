@@ -1,4 +1,5 @@
 from aiocqhttp import CQHttp
+import emoji
 # pip3 install aiocqhttp
 # 说明文档 https://github.com/richardchien/python-aiocqhttp/blob/master/README.md
 
@@ -18,7 +19,10 @@ async def handle_msg(context):
     # 不复读狗栀
     if sender_qq in [1400525500]:
         return ""
-    await bot.send(context, context['message'].replace('吗', "").replace('?', '!').replace('？', '!'))
+    message = context['message']
+    # 增加对/斜眼笑等表情的处理
+    await bot.send(context, emoji.emoji2cq(message).replace('吗', "").replace('?', '!').replace('？', '!'))
+    # await bot.send(context, context['message'].replace('吗', "").replace('?', '!').replace('？', '!'))
 
 bot.run(host='127.0.0.1', port=9898)
-# 明儿加上复读表情
+# 今儿居然就加上了复读表情！
