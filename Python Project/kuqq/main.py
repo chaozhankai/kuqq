@@ -26,3 +26,4 @@ async def handle_msg(context):
 
 bot.run(host='127.0.0.1', port=9898)
 # 今儿居然就加上了复读表情！
+# 此项目已抛弃，改用java
